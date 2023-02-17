@@ -3,8 +3,8 @@ import { Link, Outlet } from 'react-router-dom';
 import reser from '../../assets/reser.png';
 const Header = () => {
 return (
-    <div className='p-3 text-black border-b-4 border-gray-400 '>
-        <nav className='md:flex md:items-center md:justify-between ml-16 mr-16'>
+    <div className='p-3 text-black border-b-2 border-gray-500'>
+        <nav className='md:flex md:items-center md:justify-between ml-16 mr-16 '>
         <div className='md:flex md:items-center md:justify-between'>
             <Link to='/'>
             <span className='font-extrabold text-xl text-orange-400 mr-8 cursor-pointer'>
@@ -12,7 +12,6 @@ return (
                 RESERVE
             </span>
             </Link>
-            <Outlet/>
             <ul className='md:flex md:items-center md:justify-between text-lg'>
                 <li className='mx-4 cursor-pointer'>Ticket</li>
                 <li className='mx-4 cursor-pointer'>Contact us</li>
