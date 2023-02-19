@@ -117,7 +117,7 @@ const SearchPage = () => {
       </div>
     </div>  
             <div className="Review--- ">
-            <CardAndReview />
+                <CardAndReview />
             </div>
   </div>
   )

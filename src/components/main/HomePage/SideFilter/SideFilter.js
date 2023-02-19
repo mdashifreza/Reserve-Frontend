@@ -1,16 +1,38 @@
-import React from 'react';
-const SideFilter = ({time,title}) => {
+import React from 'react'
+const SideFilter = ({title,data}) => {
 return (
-    <div>
-        <h1>{title}</h1>
+<div>
+    <div className='p-2 text-sm w-64'>
+        <h1 className='font-extrabold'>{title}</h1>
         {   
-            time.map((items,id)=>{
-                return (
-                    <input type="checkbox" className='border-2 border-green-500' key={id}>{items.time}</input>
+            data.map((items)=>{
+                return(
+                    <div key={items.id} className='flex-col mt-2'>
+                        <div className='space-x-2'>
+                        <input type="checkbox" />
+                            <label htmlFor="input">
+                                {items.menu1}
+                            </label>
+                        </div>
+                        <div className='space-x-2'>
+                        <input type="checkbox" />
+                            <label htmlFor="input">
+                                {items.menu2}
+                            </label>
+                        </div>
+                        <div className='space-x-2'>
+                        <input type="checkbox" />
+                            <label htmlFor="input">
+                                {items.menu3}
+                            </label>
+                        </div>
+                    </div>
                 )
             })
         }
     </div>
+</div>
 )
 }
-export default SideFilter;
+
+export default SideFilter

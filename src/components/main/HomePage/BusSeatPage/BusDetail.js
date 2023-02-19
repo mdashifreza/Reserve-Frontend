@@ -2,20 +2,15 @@ import React, { useState } from 'react';
 import { BsStar } from 'react-icons/bs';
 import { BiRupee } from 'react-icons/bi';
 import SeatSelection from '../SeatSelection';
+import { data, links } from './dataSet';
+import Container from './Container';
 const BusDetail = () => {
     const [view, setView] = useState(false);
     return (
         <div>
             <div className='flex'>
-                <div className=" border-l-2 border-t-2 border-b-2 border-gray-500 border-r-2 p-2 w-3/4 flex">
-                    <h1 className='font-semibold'>InterCity Smart Bus</h1>
-                    <div className='flex space-x-2 mx-2 h-6 '>
-                        <div className='bg-green-500 w-14 rounded-md flex items-center text-white'>
-                            <span className='mx-1'><BsStar /></span>
-                            <span className='mx-1'>4.0</span>
-                        </div>
-                        <span className='text-sm mt-1 text-gray-400'>Ratings</span>
-                    </div>
+                <div className=" border-l-2 border-t-2 rounded-t-sm border-b-2 border-gray-500 border-r-2 p-2 w-3/4 flex">
+                    <Container title="InterCity Smart Bus" data={data} links={links}/>
                 </div>
                 <div className="border-r-2 border-t-2 border-b-2 border-gray-500 p-2 w-1/4">
                     <div className='flex flex-col text-center items-center font-bold text-md'>
