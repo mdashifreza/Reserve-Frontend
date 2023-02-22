@@ -11,7 +11,7 @@ export const reserve = [
     },
     {
         id:3,
-        name:"",
+        name:'',
         email:'reserve@reserve.co.in',
     }
     

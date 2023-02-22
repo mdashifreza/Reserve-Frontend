@@ -6,6 +6,7 @@ import { BiChevronDown } from 'react-icons/bi';
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsCalendar2Minus } from 'react-icons/bs';
 import Selector from './Selector';
+import MyButton from '../../ReusableButton/MyButton';
 const SearchPage = () => {
   // const [countries, setCountries] = useState(null);
   const [inputValue, setInputValue] = useState("");
@@ -113,7 +114,8 @@ const SearchPage = () => {
           </div>
       </div>
       <div className="Button--- text-white font-semibold p-2 -my-60 text-center z-0">
-          <Link to='/HomePage'><button className={`bg-orange-500 rounded-md w-44 h-11 z-0 ${visible || open ? 'invisible' : 'visible'}`}>Search</button></Link>
+          {/* <Link to='/HomePage'><button className={`bg-orange-500 rounded-md w-44 h-11 z-0 ${visible || open ? 'invisible' : 'visible'}`}>Search</button></Link> */}
+          <Link to='/HomePage'><MyButton name='Search' style={`bg-orange-500 rounded-md w-44 h-11 ${visible || open ? 'invisible' : 'visible'}`}/></Link>
       </div>
     </div>  
             <div className="Review--- ">
