@@ -9,7 +9,7 @@ const SeatSelection = () => {
         setisActive(cur => !cur);
     }
 return (
-    <div className='border-l-2 border-r-2 border-b-2 rounded-b-md border-gray-500 p-2 mb-2 bg-green-400'>
+    <div className='border-l-2 border-r-2 border-b-2 rounded-b-md border-gray-500 p-2 mb-2'>
         <ItemContainer />
     </div>
 )

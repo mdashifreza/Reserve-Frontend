@@ -18,7 +18,6 @@ return (
             <Pagination/>
                 <div className="BusDetail----- mt-5">
                     <BusDetail/>
-                    <BusDetail/>
                 </div>
         </div>
     </div>

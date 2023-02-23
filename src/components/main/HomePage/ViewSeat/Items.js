@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Button from '../../../ReusableButton/MyButton';
 import {Link} from 'react-router-dom';
+import ImageWithColor from './ImageWithColor';
 const Items = ({data,detail,title,book,seatData}) => {
-    const [seatColor,setSeatColor]=useState(false);
-    function handleImage(){
-        setSeatColor(!seatColor)
-        console.log('chekin')
-    }
+    const handleClick = () => {
+        console.log('Image clicked');
+    };
 return (
-    <div className='bg-yellow-300'>
+    <div className=''>
         <h1 className='font-extrabold'>{title}</h1>
         <div className='flex space-x-6'>
             <div className='flex w-3/4 items-center p-2'>
@@ -47,12 +46,71 @@ return (
         </div>
         <div className='flex'>
         <div className='bg-white p-2 w-3/4 border-l-2 border-t-2 border-b-2 border-gray-500 rounded-l-md'>
-            <div className='flex space-x-5 mx-20'>
+            <div className='flex space-x-5 mx-20 mt-5'>
+                {
+                    seatData.map((image) => (
+                        <div key={image.id} className='flex space-x-3 '>
+                            {
+                                image.seatFirstRow.map((items,index)=>{
+                                    return(
+                                        <div key={index}>
+                                            <ImageWithColor
+                                            src={items.src}
+                                            alt={items.alt}
+                                            initialColor={items.initialColor}
+                                            onClick={handleClick}
+                                            />
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    ))
+                }
+            </div>
+            <div className='flex space-x-5 mx-20 mt-5'>
                 {
                     seatData.map((items)=>{
                         return(
-                            <div key={items.id}>
-                                <img src={items.seat} alt="" className={`h-6 w-16 ${(setSeatColor==true) ? "bg-green-500" :"bg-whi"}`} onClick={handleImage}/>
+                            <div key={items.id} className='flex space-x-3'>
+                                {
+                                    items.seatSecondRow.map((items,index)=>{
+                                        return(
+                                            <div key={index}>
+                                            <ImageWithColor
+                                            src={items.src}
+                                            alt={items.alt}
+                                            initialColor={items.initialColor}
+                                            onClick={handleClick}
+                                            />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <div className='flex justify-end space-x-5 mx-20 mt-10'>
+                {
+                    seatData.map((items)=>{
+                        return(
+                            <div key={items.id} className='flex space-x-3'>
+                                {
+                                    items.seatLastRow.map((items,index)=>{
+                                        return(
+                                            <div key={index}>
+                                            <ImageWithColor
+                                            src={items.src}
+                                            alt={items.alt}
+                                            initialColor={items.initialColor}
+                                            onClick={handleClick}
+                                            />
+                                            </div>
+                                        )
+                                    })
+                                }
                             </div>
                         )
                     })
