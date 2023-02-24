@@ -5,7 +5,7 @@ import Search from './Search';
 const PaymentPage = () => {
 return (
     <div>
-        {/* <Search /> */}
+        <Search />
         <div className='border-2 border-gray-500 w-1/2 rounded-md m-56 p-2 items-center text-center'>
             <div className='text-center items-center'>
                 <div className='text-green-500'><BsCheckLg/></div>

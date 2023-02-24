@@ -5,8 +5,8 @@ const ItemContainer = () => {
 return (
 <div className=''>
     <div className='flex'>
-        <Items data={busData} label={'From'} labeltwo={'India'} placeholder={'Select From City'}/>
-        <Items data={busData} label={'To'} labeltwo={'India'} placeholder={'Select To City'}/>
+        <Items data={busData} fromdata={'from'} label={'From'} labeltwo={'India'} placeholder={'Select From City'}/>
+        <Items data={busData} todata={'to'} label={'To'} labeltwo={'India'} placeholder={'Select To City'}/>
     </div>
 </div>
 )

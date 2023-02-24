@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
-const Items = ({data,label,labeltwo,placeholder}) => {
+const Items = ({data,label,labeltwo,placeholder,fromdata,todata}) => {
     const [searchFromValue, setsearchFromValue] = useState("");
     const [selectedFrom, setselectedFrom] = useState("");
     const [open, setOpen] = useState(false);
