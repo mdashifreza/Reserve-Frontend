@@ -29,3 +29,11 @@ export const loginRegister = [
         link:'/register'
     }
 ]
+export const onlyRegister = [
+    {
+        id:1,
+        pic:reser,
+        name:'My Profile',
+        link:'/register'
+    }
+]

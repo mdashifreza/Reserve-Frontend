@@ -2,60 +2,59 @@ import React, { useState } from 'react';
 import Button from '../../../ReusableButton/MyButton';
 import {Link} from 'react-router-dom';
 import ImageWithColor from './ImageWithColor';
-const Items = ({data,detail,title,book,seatData}) => {
+const Items = ({ title, selectedDetail ,busSeatData }) => {
+    const seatInfo = [
+    { id: 1, value: "Vacant Seats", selected: false },
+    { id: 2, value: "Reserved Seats", selected: false },
+    { id: 3, value: "Selexted Seats", selected: false },
+];
     const handleClick = () => {
         console.log('Image clicked');
     };
+    const price = 8;
 return (
-    <div className=''>
+    <div>
         <h1 className='font-extrabold'>{title}</h1>
-        <div className='flex space-x-6'>
-            <div className='flex w-3/4 items-center p-2'>
-                <h1 className='font-bold'>Select Price</h1>
-                <div className='flex mx-16 space-x-2'>
-                {
-                    data.map((items)=>{
-                        return(
-                            <ul key={items.id} className=''>
-                                <li>
-                                    <span className='flex border-2 rounded-sm border-gray-500 items-center'>
-                                        <input type="radio" name='price'/>
-                                        <span>{items.rup}</span>
-                                        <span>{items.p}</span>
-                                    </span>
-                                </li>
-                            </ul>
-                        )
-                    })
-                }
+        <div className='bg-green-500 flex justify-between p-2'>
+            <div className='flex justify-start mt-5 space-x-5'>
+                <div><h1>Select Price</h1></div>
+                <div className='flex space-x-5'>
+                    {
+                        busSeatData.map((items,index)=>{
+                            return(
+                                <div>
+                                    <span><input type='radio' name='price' />{items.prices}</span>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
-            </div>  
-            <div className='flex-col w-1/4'>
+            </div>
+            <div className='mr-10'>
                 {
-                    detail.map((items)=>{
+                    seatInfo.map((items,index)=>{
                         return(
-                            <div key={items.id} className='text-black space-x-2 flex items-center'> 
-                                <input type='checkbox' name='name' className='w-5 h-5'/>
-                                <label htmlFor="">{items.name}</label>
+                            <div>
+                                <span><input type="checkbox" />{items.value}</span>
                             </div>
                         )
                     })
                 }
             </div>
-            
         </div>
         <div className='flex'>
         <div className='bg-white p-2 w-3/4 border-l-2 border-t-2 border-b-2 border-gray-500 rounded-l-md'>
-            <div className='flex space-x-5 mx-20 mt-5'>
+            <div className='flex-col space-y-5 '>
                 {
-                    seatData.map((image) => (
-                        <div key={image.id} className='flex space-x-3 '>
-                            {
-                                image.seatFirstRow.map((items,index)=>{
+                    busSeatData.seatLeft.map((image,index) => (
+                        <div key={index} className='flex space-x-2'>
+                            <span>{image}</span>
+                            {/* {
+                                image.seatLeft.map((items,index)=>{
                                     return(
                                         <div key={index}>
                                             <ImageWithColor
-                                            src={items.src}
+                                            src={items.value}
                                             alt={items.alt}
                                             initialColor={items.initialColor}
                                             onClick={handleClick}
@@ -63,103 +62,53 @@ return (
                                         </div>
                                     )
                                 })
-                            }
+                            } */}
                         </div>
                     ))
                 }
             </div>
             <div className='flex space-x-5 mx-20 mt-5'>
                 {
-                    seatData.map((items)=>{
-                        return(
-                            <div key={items.id} className='flex space-x-3'>
-                                {
-                                    items.seatSecondRow.map((items,index)=>{
-                                        return(
-                                            <div key={index}>
-                                            <ImageWithColor
-                                            src={items.src}
-                                            alt={items.alt}
-                                            initialColor={items.initialColor}
-                                            onClick={handleClick}
-                                            />
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        )
-                    })
+
                 }
             </div>
             <div className='flex justify-end space-x-5 mx-20 mt-10'>
                 {
-                    seatData.map((items)=>{
-                        return(
-                            <div key={items.id} className='flex space-x-3'>
-                                {
-                                    items.seatLastRow.map((items,index)=>{
-                                        return(
-                                            <div key={index}>
-                                            <ImageWithColor
-                                            src={items.src}
-                                            alt={items.alt}
-                                            initialColor={items.initialColor}
-                                            onClick={handleClick}
-                                            />
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        )
-                    })
+
                 }
             </div>
         </div>
-        <div className='bg-white p-2 w-1/3 border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded-r-md'>
+        <div className='bg-white p-2 w-1/3 border-l-2 border-r-2 border-t-2 border-b-2 border-gray-500 rounded-r-md flex-col items-center text-center'>
             {
-                book.map((items)=>{
+                selectedDetail.map((items,index)=>{
                     return(
-                        <div key={items.id} className=''>
-                            <h1 className='font-extrabold'>{items.heading}</h1>
+                        <div key={index}>
+                            <div className='font-bold flex'>{items.title}</div>
                             <div className='flex justify-between'>
                                 <div>
-                                    <div>{items.from}</div>
-                                    <div className='text-xs text-gray-400'>{items.detail}</div>
+                                    {items.departureLocation}
+                                        <div className='text-gray-400 text-sm'>{items.busType}</div>
                                 </div>
-                                <div>
-                                    {items.timefr}
-                                </div>
+                                <div>{items.departureTime}</div>
                             </div>
                             <div className='flex justify-between'>
                                 <div>
-                                    <div>{items.to}</div>
-                                    <div className='text-xs text-gray-400'>{items.detailto}</div>
+                                        {items.arrivalLocation}
+                                    <div className='text-gray-400 text-sm'>{items.busType}</div>
                                 </div>
+                                <div>{items.arrivalTime}</div>
+                            </div>
+                            <div className='flex justify-between border-b-2 '>
                                 <div>
-                                    {items.timeto}
+                                    {items.name}
                                 </div>
-                            </div>
-                            <div className='flex justify-between border-b-2'>
-                                <span>{items.seat}</span>
-                                <span>{items.number}</span>
-                            </div>
-                            <div className='border-b-2 border-gray-200'>
-                                <span className='font-bold'>{items.detailfair}</span>
-                                <div className='flex justify-between'>
-                                    <h1>{items.text}</h1>
-                                    <div className='flex items-center'>
-                                        <div>{items.rup}</div>
-                                        <div>{items.fare}</div>
-                                    </div>
-                                </div>
+                                <div>{price}</div>
                             </div>
                         </div>
                     )
                 })
             }
-            <Link to='/infoPage'><Button name='Proceed To Boook' style='bg-orange-500 text-white rounded-sm mx-14 mt-1 p-1'/></Link>
+            <Link to='/infoPage'><Button name='Proceed To Boook' style='bg-orange-500 text-white rounded-sm mt-1 p-1'/></Link>
         </div>
         </div>
     </div>

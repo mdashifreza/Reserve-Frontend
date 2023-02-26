@@ -1,13 +1,12 @@
 import React from 'react'; 
-import { Link } from 'react-router-dom';
-import { navbar,loginRegister} from './dataSet';
+import { navbar,loginRegister,onlyRegister} from './dataSet';
 import Items from './Items';
 const Header = () => {
 
 return (
     <div className='p-3 text-black border-b-2 border-gray-500'>
         <nav>
-            <Items data={navbar} loginRegister={loginRegister}/>
+            <Items data={navbar} loginRegister={loginRegister} onlyRegister={onlyRegister}/>
         </nav>        
         {/* <nav className='md:flex md:items-center md:justify-between ml-16 mr-16 '>
         <div className='md:flex md:items-center md:justify-between'>

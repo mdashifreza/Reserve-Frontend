@@ -1,11 +1,11 @@
 import React from 'react'
-import { price,detail,seatData,book} from './dataSet';
+import { selectedDetail, busSeatData } from './dataSet';
 import Items from './Items';
 import ImageWithColor from './ImageWithColor';
 const ItemContainer = () => {
 return (
     <div>
-            <Items data={price} detail={detail} book={book} seatData={seatData} title='Select Seat'/>
+            <Items selectedDetail={selectedDetail} busSeatData={busSeatData} title='Select Seat'/>
     </div>
 )
 }
